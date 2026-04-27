@@ -1,310 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AJ AUTO VIP | Used Car • New Car • Recon Car</title>
+import React from "react";
+import { Car, MessageCircle, Search, ShieldCheck, Sparkles, Phone, MapPin, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+export default function CarSalesWebsite() {
+  const whatsappNumber = "601125765896";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I am interested in buying/selling a car.")}`;
 
-    body {
-      background: #050505;
-      color: white;
-    }
+  const services = [
+    {
+      icon: <Car className="w-7 h-7" />,
+      title: "Buy Used Cars",
+      text: "Quality used cars with clean condition, fair price, and easy viewing arrangement.",
+    },
+    {
+      icon: <Sparkles className="w-7 h-7" />,
+      title: "New Cars",
+      text: "Looking for a brand new car? Tell us your model, budget, and preferred color.",
+    },
+    {
+      icon: <Search className="w-7 h-7" />,
+      title: "Recon Cars",
+      text: "Find premium recon cars based on your dream model and budget range.",
+    },
+    {
+      icon: <ShieldCheck className="w-7 h-7" />,
+      title: "Sell Your Car",
+      text: "Want to sell your car? Send us your car details and get a fast offer.",
+    },
+  ];
 
-    header {
-      background: #000;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #d4af37;
-    }
+  const cars = [
+    { name: "Toyota Vios", tag: "Used / New", price: "From RMXX,XXX" },
+    { name: "Honda City", tag: "Used / New", price: "From RMXX,XXX" },
+    { name: "Toyota Alphard", tag: "Recon", price: "From RMXXX,XXX" },
+  ];
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #d4af37;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 8px;
-      margin-left: 25px;
-      font-weight: bold;
-    }
-
-    .hero {
-      height: 350px;
-      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
-      url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7') center/cover;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-      
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .hero span {
-      color: #d4af37;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #ddd;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #d4af37;
-      color: black;
-      padding: 15px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 70px 8%;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #d4af37;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #111;
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid #333;
-      text-align: center;
-    }
-
-    .card h3 {
-      color: #d4af37;
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
-
-    .card p {
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    .cars {
-      background: #fff;
-      color: black;
-    }
-    @media (max-width: 768px) {
-      header {
-      flex-direction: column;
-      gap: 15px;
-    }
-    .car-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      .services {
-       grid-template-columns: 1fr;
-        }
-      gap: 25px;
-    }
-
-    .car-box {
-      background: #f5f5f5;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
-    }
-
-    .car-box img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .car-info {
-      padding: 20px;
-    }
-
-    .car-info h3 {
-      margin-bottom: 10px;
-    }
-
-    .contact {
-      text-align: center;
-      background: #090909;
-    }
-
-    .contact p {
-      font-size: 20px;
-      margin-bottom: 25px;
-      color: #ddd;
-    }
-
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 25px;
-      color: #aaa;
-      border-top: 1px solid #d4af37;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25D366;
-      color: white;
-      padding: 16px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 5px 20px rgba(0,0,0,.4);
-      z-index: 999;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .nav a {
-        margin: 0 8px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="logo">A&J AUTO CAR SALES</div>
-    <div class="nav">
-      <a href="#services">Services</a>
-      <a href="#cars">Cars</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div>
-      <h1>Find Your <span>Dream Car</span></h1>
-      <p>Used Car • New Car • Recon Car • Sell Your Car</p>
-      <a class="btn" href="https://wa.me/601125765896" target="_blank">
-        WhatsApp Now
-      </a>
-    </div>
-  </section>
-
-  <section id="services">
-    <h2 class="title">Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Buy Used Car</h3>
-        <p>Quality used cars with good condition and fair price.</p>
-      </div>
-
-      <div class="card">
-        <h3>New Car</h3>
-        <p>Looking for new car? Tell us your model and budget.</p>
-      </div>
-
-      <div class="card">
-        <h3>Recon Car</h3>
-        <p>Find premium recon cars based on your dream model.</p>
-      </div>
-
-      <div class="card">
-        <h3>Sell Your Car</h3>
-        <p>Want to sell your car? Send us details and get fast offer.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="cars" class="cars">
-    <h2 class="title">Popular Cars</h2>
-
-    <div class="car-list">
-      
-        car-box img {
-        width: 100%;
-        height: 120px;
-        object-fit: contain;
-        background: white;
-        padding: 20px;
-      }
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_logo.png">
-        <div class="car-info">
-          <h3>Toyota Vios</h3>
-          <p>Used / New Car Available</p>
+  return (
+    <div className="min-h-screen bg-neutral-950 text-white">
+      <header className="sticky top-0 z-50 border-b border-yellow-500/20 bg-neutral-950/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="rounded-2xl bg-yellow-500 p-2 text-black">
+              <Car className="h-6 w-6" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold tracking-wide">ANDY AUTO</h1>
+              <p className="text-xs text-neutral-400">Used • New • Recon Cars</p>
+            </div>
+          </div>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden rounded-full bg-yellow-500 px-5 py-2.5 font-semibold text-black shadow-lg transition hover:bg-yellow-400 md:inline-flex"
+          >
+            WhatsApp Now
+          </a>
         </div>
-      </div>
+      </header>
 
-      <div class="car-box">
-        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
-        <div class="car-info">
-          <h3>Honda City</h3>
-          <p>Used / New Car Available</p>
-        </div>
-      </div>
+      <main>
+        <section className="relative overflow-hidden px-6 py-24">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(234,179,8,0.22),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_30%)]" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+              <p className="mb-4 inline-flex rounded-full border border-yellow-500/30 px-4 py-2 text-sm text-yellow-300">
+                Premium car buying & selling service
+              </p>
+              <h2 className="text-5xl font-black leading-tight md:text-7xl">
+                Find Your Next <span className="text-yellow-400">Dream Car</span>
+              </h2>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
+                We help customers buy used cars, book new cars, find recon cars, and sell their current cars with a smooth and trusted process.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-500 px-7 py-4 font-bold text-black shadow-xl transition hover:bg-yellow-400"
+                >
+                  <MessageCircle className="h-5 w-5" /> WhatsApp 6011-2576 5896
+                </a>
+                <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-4 font-semibold text-white hover:bg-white/10">
+                  View Services <ArrowRight className="h-5 w-5" />
+                </a>
+              </div>
+            </motion.div>
 
-      <div class="car-box">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-        <div class="car-info">
-          <h3>Recon Cars</h3>
-          <p>Alphard / Vellfire / Luxury Cars</p>
-        </div>
-      </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="rounded-[2rem] border border-yellow-500/20 bg-white/5 p-4 shadow-2xl">
+              <div className="rounded-[1.5rem] bg-gradient-to-br from-neutral-800 to-black p-8">
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="rounded-full bg-yellow-500 px-4 py-1 text-sm font-bold text-black">HOT DEALS</span>
+                  <span className="text-sm text-neutral-400">Updated Daily</span>
+                </div>
+                <div className="aspect-video rounded-3xl bg-[linear-gradient(135deg,#facc15,#ffffff_38%,#111827_39%,#030712)] p-1">
+                  <div className="flex h-full items-center justify-center rounded-3xl bg-neutral-950">
+                    <Car className="h-28 w-28 text-yellow-400" />
+                  </div>
+                </div>
+                <div className="mt-6 grid grid-cols-3 gap-3 text-center">
+                  <div className="rounded-2xl bg-white/5 p-4">
+                    <p className="text-2xl font-black text-yellow-400">USED</p>
+                    <p className="text-xs text-neutral-400">Cars</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/5 p-4">
+                    <p className="text-2xl font-black text-yellow-400">NEW</p>
+                    <p className="text-xs text-neutral-400">Cars</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/5 p-4">
+                    <p className="text-2xl font-black text-yellow-400">RECON</p>
+                    <p className="text-xs text-neutral-400">Cars</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="services" className="bg-neutral-100 px-6 py-20 text-black">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-12 text-center">
+              <h3 className="text-4xl font-black">What We Can Help You With</h3>
+              <p className="mt-3 text-neutral-600">Buy car, sell car, find new car, or search recon car.</p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {services.map((item, index) => (
+                <motion.div key={item.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="rounded-3xl bg-white p-7 shadow-lg">
+                  <div className="mb-5 inline-flex rounded-2xl bg-yellow-100 p-3 text-yellow-700">{item.icon}</div>
+                  <h4 className="mb-3 text-xl font-black">{item.title}</h4>
+                  <p className="leading-7 text-neutral-600">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <h3 className="text-4xl font-black">Popular Requests</h3>
+                <p className="mt-3 text-neutral-400">Tell us what car you want. We help you search.</p>
+              </div>
+              <a href={whatsappLink} target="_blank" rel="noreferrer" className="rounded-full border border-yellow-500 px-6 py-3 font-bold text-yellow-300 hover:bg-yellow-500 hover:text-black">
+                Ask For Stock
+              </a>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {cars.map((car) => (
+                <div key={car.name} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl">
+                  <div className="mb-5 flex aspect-video items-center justify-center rounded-2xl bg-neutral-900">
+                    <Car className="h-20 w-20 text-yellow-400" />
+                  </div>
+                  <p className="text-sm text-yellow-300">{car.tag}</p>
+                  <h4 className="mt-2 text-2xl font-black">{car.name}</h4>
+                  <p className="mt-2 text-neutral-400">{car.price}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-6 py-20 text-black">
+          <div className="mx-auto max-w-5xl rounded-[2rem] bg-neutral-950 p-10 text-white shadow-2xl md:p-14">
+            <h3 className="text-4xl font-black">Want to buy or sell a car?</h3>
+            <p className="mt-4 text-lg leading-8 text-neutral-300">
+              Send us your car model, year, budget, location, or your current car details. We will reply as soon as possible.
+            </p>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-4">
+                <Phone className="h-5 w-5 text-yellow-400" />
+                <span>WhatsApp: 6011-2576 5896</span>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-4">
+                <MapPin className="h-5 w-5 text-yellow-400" />
+                <span>Malaysia Car Sales Service</span>
+              </div>
+            </div>
+            <a href={whatsappLink} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-yellow-500 px-7 py-4 font-black text-black hover:bg-yellow-400">
+              WhatsApp Now <MessageCircle className="h-5 w-5" />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-neutral-400">
+        © 2026 ANDY AUTO. Used Car • New Car • Recon Car Sales.
+      </footer>
     </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="title">Contact Us</h2>
-    <p>Want to buy, sell, or find a car?</p>
-    <a class="btn" href="https://wa.me/601125765896" target="_blank">
-      WhatsApp 6011-2576 5896
-    </a>
-  </section>
-
-  <footer>
-    © 2026 ANDY AUTO. Used Car • New Car • Recon Car Sales.
-  </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/601125765896" target="_blank">
-    WhatsApp
-  </a>
-
-</body>
-</html>
+  );
+}
