@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANDY AUTO | Used Car • New Car • Recon Car</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+    }
+
+    header {
+      background: #000;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d4af37;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d4af37;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 90vh;
+      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+      url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7') center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #d4af37;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 40px;
+      color: #d4af37;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #d4af37;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .cars {
+      background: #fff;
+      color: black;
+    }
+
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .car-box {
+      background: #f5f5f5;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+
+    .car-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .car-info {
+      padding: 20px;
+    }
+
+    .car-info h3 {
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #090909;
+    }
+
+    .contact p {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #ddd;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 25px;
+      color: #aaa;
+      border-top: 1px solid #d4af37;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0,0,0,.4);
+      z-index: 999;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .nav a {
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">ANDY AUTO</div>
+    <div class="nav">
+      <a href="#services">Services</a>
+      <a href="#cars">Cars</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Find Your <span>Dream Car</span></h1>
+      <p>Used Car • New Car • Recon Car • Sell Your Car</p>
+      <a class="btn" href="https://wa.me/601125765896" target="_blank">
+        WhatsApp Now
+      </a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="title">Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Buy Used Car</h3>
+        <p>Quality used cars with good condition and fair price.</p>
+      </div>
+
+      <div class="card">
+        <h3>New Car</h3>
+        <p>Looking for new car? Tell us your model and budget.</p>
+      </div>
+
+      <div class="card">
+        <h3>Recon Car</h3>
+        <p>Find premium recon cars based on your dream model.</p>
+      </div>
+
+      <div class="card">
+        <h3>Sell Your Car</h3>
+        <p>Want to sell your car? Send us details and get fast offer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cars" class="cars">
+    <h2 class="title">Popular Cars</h2>
+
+    <div class="car-list">
+      <div class="car-box">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+        <div class="car-info">
+          <h3>Toyota Vios</h3>
+          <p>Used / New Car Available</p>
+        </div>
+      </div>
+
+      <div class="car-box">
+        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+        <div class="car-info">
+          <h3>Honda City</h3>
+          <p>Used / New Car Available</p>
+        </div>
+      </div>
+
+      <div class="car-box">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+        <div class="car-info">
+          <h3>Recon Cars</h3>
+          <p>Alphard / Vellfire / Luxury Cars</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="title">Contact Us</h2>
+    <p>Want to buy, sell, or find a car?</p>
+    <a class="btn" href="https://wa.me/601125765896" target="_blank">
+      WhatsApp 6011-2576 5896
+    </a>
+  </section>
+
+  <footer>
+    © 2026 ANDY AUTO. Used Car • New Car • Recon Car Sales.
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/601125765896" target="_blank">
+    WhatsApp
+  </a>
+
+</body>
+</html>
