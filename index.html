@@ -6,6 +6,27 @@
   <title>AJ AUTO VIP | Used Car • New Car • Recon Car</title>
 
   <style>
+   .brand-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+  flex-wrap: wrap;
+}
+
+.brand-row img {
+  height: 60px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.brand-row img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+} 
     * {
       margin: 0;
       padding: 0;
@@ -253,7 +274,17 @@
       </div>
     </div>
   </section>
+      <h2 class="section-title">Brands</h2>
 
+<div class="brand-row">
+
+  <img src="https://cdn.worldvectorlogo.com/logos/toyota-1.svg">
+  <img src="https://cdn.worldvectorlogo.com/logos/perodua.svg">
+  <img src="https://cdn.worldvectorlogo.com/logos/honda-1.svg">
+  <img src="https://cdn.worldvectorlogo.com/logos/proton.svg">
+  <img src="https://cdn.worldvectorlogo.com/logos/nissan-6.svg">
+
+</div>
   <section id="cars" class="cars">
     <h2 class="title">Popular Cars</h2>
 
